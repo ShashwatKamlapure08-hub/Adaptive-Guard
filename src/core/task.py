@@ -33,6 +33,23 @@ class Task:
         self.turnaround_time = 0
         self.response_time = 0
 
+    def clone(self):
+        """Returns a brand-new, independent Task with the same
+        arrival_time/burst_time/priority/pid, in pristine unrun state.
+
+        This is NOT the same thing as reset(): reset() reuses the SAME
+        object, so a ScheduleResult holding a reference to it will see
+        whatever state it's in the next time you look -- including
+        mutations from a completely different scheduler run that happens
+        later. clone() decouples the two entirely, which matters whenever
+        a result needs to be kept around and inspected after other
+        algorithms have also run against "the same" task set (e.g. the
+        benchmarking harness, which runs many schedulers against one
+        conceptual workload and needs every ScheduleResult to hold its
+        own independent snapshot).
+        """
+        return Task(self.pid, self.arrival_time, self.burst_time, self.priority)
+
     def __repr__(self):
         return (f"Task(pid={self.pid}, arrival={self.arrival_time}, burst={self.burst_time}, "
                 f"prio={self.priority}, wait={self.waiting_time}, turnaround={self.turnaround_time}, "
