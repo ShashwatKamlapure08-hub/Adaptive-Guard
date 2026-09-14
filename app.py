@@ -36,6 +36,32 @@ from src.visualization import plots
 
 st.set_page_config(page_title="AdaptiveGuard", layout="wide")
 
+# Light, minimal polish on top of the theme in .streamlit/config.toml.
+# Deliberately restrained: soft card backgrounds for st.metric, slightly
+# bolder section dividers, nothing animated or color-heavy -- the goal is
+# "looks like a credible systems tool," not "looks like a product demo."
+st.markdown("""
+<style>
+    div[data-testid="stMetric"] {
+        background-color: #F0F4F8;
+        border: 1px solid #E2E8F0;
+        border-radius: 10px;
+        padding: 12px 16px;
+    }
+    div[data-testid="stMetricLabel"] {
+        color: #475569;
+    }
+    hr {
+        margin: 1.5rem 0;
+        border-color: #E2E8F0;
+    }
+    .stTabs [data-baseweb="tab"] {
+        font-size: 15px;
+        padding: 8px 4px;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 ALGO_NAMES = ["FCFS", "SJF", "SRTF", "Round Robin", "Priority+Aging", "Adaptive Hybrid"]
 
 

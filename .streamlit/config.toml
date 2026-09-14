@@ -1,0 +1,24 @@
+[theme]
+base = "light"
+
+# A calm, muted steel-blue as the single accent color -- used for buttons,
+# active tab underline, slider handles, and links. Deliberately not a
+# bright/saturated color: this is a systems-analysis tool, not a consumer app,
+# so the goal is "looks credible in front of a professor," not "looks flashy."
+primaryColor = "#2E6E8E"
+
+# Main content area: plain white keeps charts (which have their own white
+# background from matplotlib) from looking like they're floating on a
+# mismatched surface.
+backgroundColor = "#FFFFFF"
+
+# Sidebar and card-like elements (metrics, dataframes, code blocks) get a
+# very light blue-gray -- enough to visually separate sections without
+# competing with the data itself.
+secondaryBackgroundColor = "#F0F4F8"
+
+# Soft dark slate instead of pure black -- easier to read for long stretches
+# and slightly warmer than default Streamlit black.
+textColor = "#1E293B"
+
+font = "sans serif"
